@@ -1,0 +1,32 @@
+<%- include("header"); -%>
+    <body>
+      
+    <div class="box" id="heading">     
+        <h1> <%= kindofday %></h1>
+    </div>
+
+    <div class="box">
+        
+            <%  listing.forEach(function(elements) {%>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" name="checkbox" value="<%= elements._id %> " onChange="this.form.submit()">
+                        <p> <%=elements.name %> </p>
+                    </div>
+                </form>
+           <% }); %>
+         
+
+
+        <form  class="item" action="/" method="post" >
+            <input type="text" name="newentry" placeholder="Any thing new to add" autocomplete="off">
+            <button type="submit">+</button>
+        </form>
+
+    </div>
+        
+        
+
+    </body>
+
+<%- include("footer"); -%>
